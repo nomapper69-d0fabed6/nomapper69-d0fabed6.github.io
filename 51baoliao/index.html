@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>51爆料每日大赛大乱斗-每日大赛爆点_大乱斗赛况实时讨论</title>
+    <meta name="description" content="51爆料每日大赛大乱斗：实时追踪每日大赛高能爆点、大乱斗赛况与玩家热议。聚合热门对局、选手表现、每日更新与社区评论，适合关注每日赛事动态、寻找话题与讨论的玩家浏览收藏。">
+    <meta name="keywords" content="51爆料每日大赛大乱斗,每日大赛爆料,大乱斗赛况,51爆料大赛讨论,每日大赛热门">
+    <style>
+        :root {
+            --bg: #f7f5f2;
+            --card-bg: #ffffff;
+            --text-primary: #1e1b1a;
+            --text-secondary: #5e5a57;
+            --accent: #d94f2b;
+            --accent-soft: #fcebe5;
+            --border-light: #e9e5e0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.06);
+            --radius-md: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 40px;
+            --max-width: 1200px;
+            --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 顶部导航 */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-mark {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .logo-mark::after {
+            content: '51';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill);
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: default;
+            transition: background 0.2s;
+        }
+
+        .btn-ghost:hover {
+            background: #f1efed;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius-pill);
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            cursor: default;
+        }
+
+        /* Banner */
+        .banner-section {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .banner-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .banner-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .banner-title span {
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 0 8px;
+            border-radius: 8px;
+        }
+
+        .banner-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 780px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill);
+            padding: 4px 4px 4px 20px;
+            max-width: 500px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 0.95rem;
+            padding: 10px 0;
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        .search-box input::placeholder {
+            color: #a09b97;
+        }
+
+        .search-box button {
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius-pill);
+            padding: 10px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: default;
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .quick-links a {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .quick-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* 通用区块 */
+        .section {
+            padding: 52px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-light);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #9b9590;
+            border-top: 1px solid var(--border-light);
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        /* 更新列表 */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+            transition: background 0.15s;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-item:hover {
+            background: #faf9f8;
+        }
+
+        .update-main {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .update-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .update-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .update-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .update-time {
+            font-size: 0.75rem;
+            color: #a7a19c;
+            white-space: nowrap;
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .category-item {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 18px 16px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .category-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        /* 深度解析正文 */
+        .article-content {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            margin: 24px 0 12px;
+            font-weight: 700;
+        }
+
+        .article-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            color: #3a3634;
+            font-size: 0.98rem;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .faq-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-q {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .faq-q::before {
+            content: 'Q';
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding-left: 24px;
+        }
+
+        /* 评论 */
+        .comment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .comment-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 18px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #e9e5e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .comment-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .comment-date {
+            font-size: 0.7rem;
+            color: #a7a19c;
+            margin-left: auto;
+        }
+
+        .comment-text {
+            font-size: 0.88rem;
+            color: #3a3634;
+            line-height: 1.5;
+        }
+
+        /* 资讯卡片 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .news-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        .footer {
+            background: white;
+            border-top: 1px solid var(--border-light);
+            padding: 40px 0 32px;
+            margin-top: 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .footer-brand {
+            max-width: 320px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            margin-top: 32px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.8rem;
+            color: #a7a19c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .banner-title {
+                font-size: 1.7rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-content {
+                padding: 20px;
+            }
+
+            .update-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .update-time {
+                align-self: flex-end;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="nav-bar">
+        <div class="container nav-inner">
+            <a href="/#hero" class="logo">
+                <span class="logo-mark"></span>
+                <span>51爆料</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#hot">热门推荐</a>
+                <a href="/#updates">最新赛况</a>
+                <a href="/#categories">分类入口</a>
+                <a href="/#insight">深度解析</a>
+                <a href="/#faq">常见问题</a>
+                <a href="/#comments">社区评论</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-ghost">登录</button>
+                <button class="btn-primary">每日大赛</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 Banner -->
+    <section class="banner-section" id="hero">
+        <div class="container">
+            <div class="banner-content">
+                <h1 class="banner-title"><span>51爆料每日大赛大乱斗</span> 实时追踪 · 每日爆点 · 社区热议</h1>
+                <p class="banner-desc">
+                    每天一场大乱斗，等你来围观！这里聚合51爆料每日大赛的最新赛况、选手高光、社区热帖与深度复盘。无论你是追赛老手还是刚入坑的新人，都能快速找到今日必看对局、话题焦点和玩家真实反馈。
+                </p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索今日大赛关键词、选手昵称或热门话题...">
+                    <button>搜索</button>
+                </div>
+                <div class="quick-links">
+                    <a href="/#hot">今日热门对局</a>
+                    <a href="/#updates">最新赛果</a>
+                    <a href="/#insight">高手解析</a>
+                    <a href="/#categories">分类检索</a>
+                    <a href="/#faq">常见疑问</a>
+                    <a href="/#comments">社区讨论</a>
+                    <a href="/#news">赛事资讯</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section class="section" id="hot">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🔥 今日热门大赛推荐</h2>
+                <span class="section-subtitle">基于11月7日社区讨论热度</span>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-tag">大乱斗 · 焦点</span>
+                    <h3 class="card-title">「逆风翻盘局」阿杰丝血反杀三人</h3>
+                    <p class="card-desc">今日大乱斗最戏剧性一幕，阿杰在最后10秒完成三杀逆转，弹幕瞬间爆炸。社区已经吵了300楼。</p>
+                    <div class="card-meta"><span>热度 98.2k</span><span>更新于 2小时前</span></div>
+                </div>
+                <div class="card">
+                    <span class="card-tag">每日大赛 · 黑马</span>
+                    <h3 class="card-title">新面孔「小鹿」连斩三局登顶</h3>
+                    <p class="card-desc">注册仅三天的玩家小鹿在今日大乱斗中连胜三位老将，操作细节被扒出，疑似职业青训选手。</p>
+                    <div class="card-meta"><span>热度 76.5k</span><span>更新于 4小时前</span></div>
+                </div>
+                <div class="card">
+                    <span class="card-tag">大乱斗 · 争议</span>
+                    <h3 class="card-title">“平局重赛”规则引争论，官方回应</h3>
+                    <p class="card-desc">下午场出现同分情况，裁判判定重赛，部分玩家认为影响公平。51爆料评论区争议不断。</p>
+                    <div class="card-meta"><span>热度 65.3k</span><span>更新于 5小时前</span></div>
+                </div>
+                <div class="card">
+                    <span class="card-tag">每日大赛 · 高能</span>
+                    <h3 class="card-title">10秒团灭！「老猫」指挥完美团战</h3>
+                    <p class="card-desc">老猫在残局中精准指挥四人集火，10秒内团灭对手。赛后语音曝光，被赞“战术大师”。</p>
+                    <div class="card-meta"><span>热度 59.1k</span><span>更新于 6小时前</span></div>
+                </div>
+                <div class="card">
+                    <span class="card-tag">大乱斗 · 娱乐</span>
+                    <h3 class="card-title">主播「糖糖」乱斗翻车合集笑疯网友</h3>
+                    <p class="card-desc">糖糖今日大乱斗连续三次落地成盒，表情包已出圈。本人回应：明天一定认真。</p>
+                    <div class="card-meta"><span>热度 52.7k</span><span>更新于 7小时前</span></div>
+                </div>
+                <div class="card">
+                    <span class="card-tag">每日大赛 · 数据</span>
+                    <h3 class="card-title">今日大乱斗场均时长创赛季新低</h3>
+                    <p class="card-desc">平均每局仅12分34秒，节奏明显加快。数据分析师认为新版本装备改动是主因。</p>
+                    <div class="card-meta"><span>热度 43.8k</span><span>更新于 9小时前</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新更新 / 赛况 -->
+    <section class="section" id="updates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📡 最新赛况与动态</h2>
+                <span class="section-subtitle">2026年11月7日 实时更新</span>
+            </div>
+            <div class="update-list">
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">刚刚</span>
+                        <span class="update-name">「逆风翻盘局」决胜时刻</span>
+                        <span class="update-desc">阿杰丝血反杀三人，现场回放已上传</span>
+                    </div>
+                    <span class="update-time">11:42</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">进行中</span>
+                        <span class="update-name">B组第三轮大乱斗</span>
+                        <span class="update-desc">小鹿 vs 老猫，当前比分2:1</span>
+                    </div>
+                    <span class="update-time">11:20</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">已结束</span>
+                        <span class="update-name">A组第二轮</span>
+                        <span class="update-desc">糖糖翻车名场面诞生，弹幕量破10万</span>
+                    </div>
+                    <span class="update-time">10:55</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">公告</span>
+                        <span class="update-name">关于平局重赛规则的说明</span>
+                        <span class="update-desc">官方发布详细规则解释，评论区已开放</span>
+                    </div>
+                    <span class="update-time">10:18</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">预告</span>
+                        <span class="update-name">今晚19:00 大乱斗表演赛</span>
+                        <span class="update-desc">特邀嘉宾「老K」与「小鹿」组队乱斗</span>
+                    </div>
+                    <span class="update-time">09:40</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">数据</span>
+                        <span class="update-name">今日大乱斗观赛峰值</span>
+                        <span class="update-desc">在线人数突破42万，创本月新高</span>
+                    </div>
+                    <span class="update-time">09:05</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">花絮</span>
+                        <span class="update-name">选手休息室直播片段流出</span>
+                        <span class="update-desc">老猫与阿杰赛前互相放狠话，气氛拉满</span>
+                    </div>
+                    <span class="update-time">08:30</span>
+                </div>
+                <div class="update-item">
+                    <div class="update-main">
+                        <span class="update-badge">社区</span>
+                        <span class="update-name">今日大乱斗热词：「丝血反杀」</span>
+                        <span class="update-desc">51爆料搜索量上涨320%</span>
+                    </div>
+                    <span class="update-time">08:12</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🗂 快速分类入口</h2>
+                <span class="section-subtitle">按你感兴趣的方向浏览</span>
+            </div>
+            <div class="category-grid">
+                <a href="/#hot" class="category-item">🔥 今日爆点</a>
+                <a href="/#updates" class="category-item">📊 实时赛况</a>
+                <a href="/#insight" class="category-item">🧠 深度复盘</a>
+                <a href="/#comments" class="category-item">💬 社区热议</a>
+                <a href="/#faq" class="category-item">❓ 新手指南</a>
+                <a href="/#news" class="category-item">📰 赛事资讯</a>
+                <a href="/#hot" class="category-item">🏆 选手排行</a>
+                <a href="/#updates" class="category-item">🎮 每日赛程</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="section" id="insight">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🧠 51爆料每日大赛大乱斗深度解析</h2>
+                <span class="section-subtitle">编辑老猫 · 11月7日</span>
+            </div>
+            <div class="article-content">
+                <h3>大乱斗为什么让人上头？</h3>
+                <p>“51爆料每日大赛大乱斗”这个关键词最近在社区里出现的频率越来越高。很多人第一次看到会以为只是普通赛事合集，但真正参与进去才发现，它其实是一场每天重置、全员可参与的即时乱斗。没有漫长的赛季，没有复杂的积分，每天一场，打完就翻篇，第二天又是全新的开始。这种“短平快”的节奏恰好切中了当下玩家碎片化娱乐的需求。</p>
+                <h3>今日赛况亮点：翻盘与黑马</h3>
+                <p>11月7日的大乱斗明显比往常更激烈。下午场阿杰的丝血反杀成为社区刷屏素材，从操作层面看，他在最后10秒内连续利用地形和控制技能完成三杀，确实称得上今日最佳镜头。而更让人意外的是新面孔“小鹿”，注册仅三天就在B组连胜三位老将，打法极其冷静，赛后数据面板显示其参团率高达87%，远超同组平均水平。不少社区用户已经在猜测他是不是某职业战队的青训选手。</p>
+                <h3>规则争议与官方回应</h3>
+                <p>今天也出现了一些不和谐的声音。A组第二轮出现同分情况，裁判依据规则判定重赛，但部分玩家认为重赛对领先方不公平。51爆料评论区里双方吵了将近两百楼。官方在10:18发布了详细说明，强调规则赛前已公示，并承诺下一赛季会引入更细化的平局判定机制。这种透明沟通方式值得肯定，但也说明大乱斗在竞技公平性上还有优化空间。</p>
+                <h3>选手表现观察</h3>
+                <p>老猫依然是今日最稳的选手，指挥团战10秒团灭对手，赛后语音里他冷静的报点让不少观众感叹“这就是差距”。糖糖则延续娱乐路线，三次落地成盒反而成了流量担当，她的表情包已经在社区传开。小鹿的崛起给赛事注入了新鲜感，如果他能保持状态，很有可能成为本届大乱斗的最大黑马。</p>
+                <h3>适合哪些人关注？</h3>
+                <p>如果你喜欢即时对抗、享受每天不重样的对局，或者只是想在午休时间看一场高能乱斗，51爆料每日大赛大乱斗都非常适合。对于想提升技术的玩家，这里每天都有新鲜案例可供复盘；对于纯娱乐观众，选手的翻车与高光同样精彩。页面按照“热门推荐—最新赛况—深度解析—社区评论”的路径组织，无论你是想快速浏览还是深度阅读，都能找到适合自己的入口。</p>
+                <p>最后提醒，今日的表演赛将在19:00开始，老K与小鹿组队乱斗，预计又会诞生不少名场面。锁定51爆料，我们评论区见。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">❓ 常见问题</h2>
+                <span class="section-subtitle">关于51爆料每日大赛大乱斗</span>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-q">51爆料每日大赛大乱斗每天几点开始？</div>
+                    <div class="faq-a">常规赛一般在每天上午10:00开赛，下午场14:00，晚间表演赛视安排而定。今日（11月7日）晚间表演赛19:00开始，建议提前十分钟进入页面查看最新动态。</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-q">大乱斗的规则和普通比赛有什么区别？</div>
+                    <div class="faq-a">大乱斗采用单局定胜负制，地图和装备随机性更强，节奏更快。每天重置战绩，更强调即时发挥而非长期积分。同分情况目前判定重赛，官方已表示下赛季会优化规则。</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-q">今天有哪些值得回看的对局？</div>
+                    <div class="faq-a">首推阿杰的丝血反杀局，以及小鹿对阵老猫的B组第三轮。前者戏剧性拉满，后者是新生代与老将的直接对话。糖糖的翻车合集也很有娱乐性，适合放松观看。</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-q">如何参与51爆料社区讨论？</div>
+                    <div class="faq-a">页面下方设有评论区，登录后即可发表观点。也可以点击导航栏的“社区评论”直接跳转到讨论区。社区鼓励有理有据的分析，拒绝人身攻击，违规内容会被处理。</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-q">大乱斗适合新手观看吗？</div>
+                    <div class="faq-a">完全适合。页面提供了“新手指南”入口，包含术语表和基础规则介绍。而且大乱斗节奏快、娱乐性强，不需要太多前置知识也能看得过瘾。很多观众都是从这个赛事开始了解51爆料的。</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-q">哪里可以看到每日大赛的完整回放？</div>
+                    <div class="faq-a">51爆料页面内会汇总当日高光片段和关键回放，完整录像可关注官方合作渠道。每日更新列表里也会标注“回放已上传”的条目，点击即可查看。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="section" id="comments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💬 社区热评</h2>
+                <span class="section-subtitle">来自51爆料用户的真实声音</span>
+            </div>
+            <div class="comment-grid">
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">阿</div>
+                        <span class="comment-name">阿杰的刀</span>
+                        <span class="comment-date">11月7日 11:50</span>
+                    </div>
+                    <p class="comment-text">今天阿杰那个反杀我能吹一年，最后那下闪现躲技能太冷静了。不过小鹿确实猛，感觉职业水平。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">糖</div>
+                        <span class="comment-name">糖糖的粉</span>
+                        <span class="comment-date">11月7日 11:35</span>
+                    </div>
+                    <p class="comment-text">糖糖今天虽然翻车但节目效果拉满，表情包已经存了。希望明天认真点，别老落地成盒哈哈。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">老</div>
+                        <span class="comment-name">老猫铁粉</span>
+                        <span class="comment-date">11月7日 11:20</span>
+                    </div>
+                    <p class="comment-text">老猫指挥那波团战教科书级别，语音里思路太清晰了。不过今天B组第三轮有点悬，小鹿不好对付。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">路</div>
+                        <span class="comment-name">路人甲</span>
+                        <span class="comment-date">11月7日 10:58</span>
+                    </div>
+                    <p class="comment-text">平局重赛那事我觉得官方处理没问题，规则赛前就定了。但确实可以考虑下赛季改改，比如看剩余血量。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">小</div>
+                        <span class="comment-name">小鹿乱撞</span>
+                        <span class="comment-date">11月7日 10:40</span>
+                    </div>
+                    <p class="comment-text">小鹿这表现太圈粉了，注册三天就这么稳。希望不是昙花一现，持续关注。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">大</div>
+                        <span class="comment-name">大乱斗老油条</span>
+                        <span class="comment-date">11月7日 10:22</span>
+                    </div>
+                    <p class="comment-text">每天看51爆料大乱斗已经成习惯了，节奏快不拖沓，比看联赛舒服。就是有时候卡顿，希望优化。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">数</div>
+                        <span class="comment-name">数据帝</span>
+                        <span class="comment-date">11月7日 09:55</span>
+                    </div>
+                    <p class="comment-text">场均12分34秒确实离谱，新版本伤害溢出太严重了。建议增加防御装收益，不然大乱斗变抽卡游戏。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">新</div>
+                        <span class="comment-name">新手一枚</span>
+                        <span class="comment-date">11月7日 09:30</span>
+                    </div>
+                    <p class="comment-text">刚入坑，问下大乱斗每天几点结束啊？晚上还有吗？页面信息挺全的，已经收藏了。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">吐</div>
+                        <span class="comment-name">吐槽星人</span>
+                        <span class="comment-date">11月7日 09:12</span>
+                    </div>
+                    <p class="comment-text">今天重赛那场真的搞心态，领先方明显吃亏。不过官方回应速度还行，比装死强。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">表</div>
+                        <span class="comment-name">表演赛期待</span>
+                        <span class="comment-date">11月7日 08:50</span>
+                    </div>
+                    <p class="comment-text">晚上老K和小鹿组队？这组合有意思，老K的骚话加上小鹿的操作，希望别翻车。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">路</div>
+                        <span class="comment-name">路过看看</span>
+                        <span class="comment-date">11月7日 08:35</span>
+                    </div>
+                    <p class="comment-text">51爆料这个页面分类挺清楚的，找赛况很方便。就是希望增加个只显示高光时刻的筛选。</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="avatar">老</div>
+                        <span class="comment-name">老K的粉</span>
+                        <span class="comment-date">11月7日 08:10</span>
+                    </div>
+                    <p class="comment-text">老K今晚表演赛别划水啊，认真打一场给年轻人上上课。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📰 相关资讯</h2>
+                <span class="section-subtitle">赛事动态与周边报道</span>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">2026年11月7日</div>
+                    <div class="news-title">大乱斗观赛峰值破42万，51爆料成新流量入口</div>
+                    <p class="news-desc">今日赛事在线人数创本月新高，社区活跃度同步攀升。分析认为碎片化赛制是增长主因。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026年11月6日</div>
+                    <div class="news-title">官方预告：下赛季将引入动态平衡系统</div>
+                    <p class="news-desc">针对大乱斗随机性过强的问题，开发团队表示正在测试动态平衡机制，预计下赛季上线。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026年11月5日</div>
+                    <div class="news-title">小鹿专访：我只是个喜欢大乱斗的普通人</div>
+                    <p class="news-desc">新晋黑马小鹿首次接受文字采访，否认职业青训传闻，表示会继续参加每日大赛。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026年11月4日</div>
+                    <div class="news-title">51爆料社区上线“每日大赛”专属版块</div>
+                    <p class="news-desc">新版块聚合赛况、数据、评论和回放，用户可一键订阅每日更新提醒。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026年11月3日</div>
+                    <div class="news-title">大乱斗选手表情包大赛结果揭晓</div>
+                    <p class="news-desc">糖糖的“落地成盒”表情包以绝对优势夺冠，社区二创作品超过500件。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026年11月2日</div>
+                    <div class="news-title">数据复盘：大乱斗地图胜率差异显著</div>
+                    <p class="news-desc">统计显示部分地图存在明显优势方，官方称正在收集反馈，考虑调整刷新规则。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-mark"></span>
+                        <span>51爆料</span>
+                    </div>
+                    <p>51爆料每日大赛大乱斗——每天一场，不重样的高能乱斗。聚合最新赛况、社区热评与深度解析，为玩家提供轻松有趣的赛事内容消费体验。</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>快速导航</h4>
+                        <a href="/#hero">首页</a>
+                        <a href="/#hot">热门推荐</a>
+                        <a href="/#updates">最新赛况</a>
+                        <a href="/#insight">深度解析</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>社区</h4>
+                        <a href="/#comments">用户评论</a>
+                        <a href="/#faq">常见问题</a>
+                        <a href="/#news">相关资讯</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>友情链接</h4>
+                        <a href="/#">合作媒体</a>
+                        <a href="/#">赛事官方</a>
+                        <a href="/#">数据支持</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 51爆料每日大赛大乱斗 · 内容仅供交流参考 · 页面信息以实际赛事为准</p>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
